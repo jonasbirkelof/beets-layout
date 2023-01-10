@@ -1,0 +1,15 @@
+// webpack.mix.js
+
+let mix = require('laravel-mix');
+
+mix
+    .setPublicPath('./dist')
+    .js('src/js/beets-layout.js', 'js')
+    .sass('src/scss/beets-layout/beets-layout.scss', 'css')
+    .browserSync({
+        proxy: 'localhost/my-new-project', // Set to your "localhost/folder" or virtual host "myvhost.local"
+        files: [
+            './**/*.php',
+            './dist'
+        ]
+    });
