@@ -1,4 +1,5 @@
 node_modules/
 dist/
+src/scss/bootstrap.scss
 package-lock.json
 webpack.mix.js
