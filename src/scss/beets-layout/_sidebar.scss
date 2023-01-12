@@ -257,6 +257,11 @@
 #beets-layout .bl__sidebar.sidebar-dark {
 	color: $dark-sidebar-color;
 
+	.sidebar__header,
+	.sidebar__footer {
+		border-color: $sidebar-border-color-dark;
+	}
+
 	.sidebar__divider {
 		opacity: $dark-divider-opacity;
 	}

@@ -1,3 +1,84 @@
-site_name: My Docs
+site_name: Beets Layout
+site_url: https://jonasbirkelof.github.io/beets-layout
+repo_url: https://github.com/jonasbirkelof/beets-layout
+repo_name: jonasbirkelof/beets-layout
+edit_uri: ""
 theme:
   name: material
+  # custom_dir: overrides/
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  logo: assets/images/beets_icon_col_250x250.png
+  favicon: assets/images/beets_icon_col_250x250.png
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - search.highlight
+extra_css:
+  - assets/stylesheets/custom.css
+extra_javascript:
+  # - assets/javascripts/beets.js
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - tables
+  - md_in_html
+nav:
+  - Home: index.md
+  - Download: download.md
+  - Install: install.md
+  - Documentation: 
+    - Overview: docs/overview.md
+    - Logo: docs/logo.md
+    - Sidebar: docs/sidebar.md
+    - Main: docs/main.md
+    - Header: docs/header.md
+    - Body: docs/body.md
+    - Footer: docs/footer.md
+plugins:
+  - search
+  - mike:
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jonasbirkelof/beets-layout
+      name: Beets Layout on GitHub
+copyright: Copyright &copy; 2023 Jonas Birkel&ouml;f

@@ -56,7 +56,7 @@ function openSubmenu($uris)
 			<div class="sidebar__body">
 				<!-- Navigation -->
 				<nav class="sidebar__nav nav-rounded nav-compact-- nav-accent-warning">
-					<ul class="nav-list">
+					<ul class="nav-list mb-0">
 						<li class="list-item">
 							<a href="?page=dashboard" class="nav-link <?= activePage(['dashboard']) ?>">
 								<div class="nav-link-icon">&lt;i&gt;</div>
@@ -108,20 +108,20 @@ function openSubmenu($uris)
 
 		</aside>
 			
-		<!-- Body -->
-		<div class="bl__body">
+		<!-- Main -->
+		<main class="bl__main">
 
 			<!-- Header -->
-			<header class="bl__header justify-content-between header-sticky">
+			<header class="bl__header justify-content-between header-sticky px-3 px-lg-4">
 				
 				<button class="btn btn-primary d-lg-none" onclick="toggleSidebar()">=</button>
-				<div class="header__logo d-lg-none">
+				<div class="header__logo d-lg-none--">
 					<img src="" alt="Logotype">
 				</div>
 				<button class="btn btn-primary d-lg-none" onclick="toggleHeader('header-nav')">...</button>
 
 				<div class="header-collapse" id="header-nav">
-					<nav class="navbar__nav">
+					<nav class="header__nav">
 						<ul class="nav-list">
 							<li class="nav-item"><a href="?page=home" class="nav-link <?= activePage(['home']) ?>">Home</a></li>
 							<li class="nav-item"><a href="?page=about" class="nav-link <?= activePage(['about']) ?>">About Us</a></li>
@@ -132,10 +132,10 @@ function openSubmenu($uris)
 
 			</header>
 
-			<!-- Main -->
-			<div class="bl__main">
-				<div class="container-xl px-2 px-lg-4">
-					MAIN
+			<!-- Body -->
+			<div class="bl__body">
+				<div class="container-fluid px-3 px-lg-4 pt-2">
+					BODY
 				</div>
 			</div>		
 			
@@ -144,7 +144,7 @@ function openSubmenu($uris)
 				FOOTER
 			</div>
 
-		</div>
+		</main>
 
 	</div>
 

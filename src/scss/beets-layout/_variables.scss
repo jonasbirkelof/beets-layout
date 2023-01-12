@@ -18,7 +18,7 @@ $sidebar-hide: translateX(-100%) !important;
 
 // Body
 
-$body-sidebar-offset: $sidebar-width;
+$main-sidebar-offset: $sidebar-width;
 
 // Header
 
@@ -62,9 +62,14 @@ $bootstrap-theme-colors: (
 $sidebar-bg: $layout-bg;
 $sidebar-color: inherit;
 $sidebar-border: 1px solid $layout-border-color;
+$sidebar-border-color-dark: rgba(255, 255, 255, .25);
 $divider-opacity: 1;
 
-$nav-accent-custom-color: #d63384;;
+:root {
+  --bl-custom-accent: #d63384;
+}
+
+$nav-accent-custom-color: var(--bl-custom-accent);
 
 $sidebar-nav-link-height: 48px;
 $sidebar-nav-link-icon-width: 1.75rem;
@@ -110,8 +115,8 @@ $header-nav-link-line-height: 22px;
 
 // Main
 
-$main-bg: $layout-bg;
-$main-color: inherit;
+$body-bg: $layout-bg;
+$body-color: inherit;
 
 // Footer
 
