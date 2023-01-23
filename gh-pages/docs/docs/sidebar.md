@@ -179,7 +179,7 @@ There are a few built in styles to choose from as well as selecting an accent co
 
 #### Accent colors
 
-To use an accent color on active items, just add the class `#!css .nav-accent-*` to `#!css .sidebar__nav`. You can choose from the Bootstrap contextual colors och set your own. You don't need Bootstrap to choose these colors sonics they are hard coded in Beets Layout.
+To use an accent color on active items, just add the class `#!css .nav-accent-*` to `#!css .sidebar__nav`. You can choose from the Bootstrap contextual colors och set your own. You don't need Bootstrap to choose these colors since they are hard coded in Beets Layout.
 
 These are the accent colors you can choose from:
 

@@ -1,10 +1,14 @@
-# Beets Layout
+<img src="assets/images/beetslayout_col_100x480.png" style="display: block; margin-left: auto; margin-right: auto; height: 80px;">
 
 # About
 
 Beets Layout is a CSS and JavaScript library that gives you some good layout fundation for your HTML or PHP projects. The focus is on dashboards but you can easily modify it to make it work with standard websites or single page applications.
 
-Beets Layout can be used by itself with some css styling, but if you want a super simple start you can use it with [Bootstrap](https://getbootstrap.com/) and [documentation](https://jonasbirkelof.github.io/beets-css)!
+The point of this framework is not to be extremely customizable and every design choice at your fingertips but rather have a good and fully functioning starting point. To get the quickest and best experience, you should use Beets Layout together with [Bootstrap](https://getbootstrap.com/), though it can also be used with your own custom css or frameworks like [Tailwind CSS](https://tailwindcss.com/).
+
+*Also consider using Beets Layout with [Beets CSS](https://github.com/jonasbirkelof/beets-css) and [Beets PHP](https://github.com/jonasbirkelof/beets-php)*
+
+Beets Layout is developed using Boostrap 5.2.X.
 
 # Download
 
@@ -12,14 +16,14 @@ For the latest version of Beets CSS, plese see the [GitHub Releases](https://git
 
 The files are located under the section **Assets** of the version you want.
 
-- Compiled CSS: `beets-css-v2.x.x-dist.zip`
-- Source files: `beets-css-v2.x.x-src.zip`
+- Compiled files: `beets-layout-v1.x.x-dist.zip`
+- Source files: `beets-layout-v1.x.x-src.zip`
 
 # Installation
 
 ## Compiled CSS files
 
-1. Download and unzip the compiled version of Beets Layout `beets-css-v2.x.x-dist.zip`.
+1. Download and unzip the compiled version of Beets Layout `beets-layout-v1.x.x-dist.zip`.
 2. Include `beets-layout.css` and `beets-layout.js` in the `<head>` of your projects index file.
 ```html
 <link rel="stylesheet" href="~/assets/css/beets-layout.css">
@@ -28,8 +32,8 @@ The files are located under the section **Assets** of the version you want.
 
 ## Source files
 
-1. Download and unzip the Beets CSS source files `beets-css-v2.x.x-src.zip`.
-2. Move the folders `scss/beets-layout` and `js/beets-layout` to your resource folder in your project (from where you compile your resources, i.e. ~/resources/`).
+1. Download and unzip the source files: `beets-layout-va.x.x-src.zip`.
+2. Move the folders `scss/beets-layout` and `js/beets-layout` to your resource folder in your project (from where you compile your resources, i.e. ~/resources/`). You could `@include` the file `beets-layout/beets-layout.scss` in your main `app.scss` file.
 3. Compile `beets-layout.scss` and `betts-layout.js` into you public assets folder (i.e. ~/public/assets/).
 
 # Documentation
