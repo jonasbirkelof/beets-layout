@@ -32,8 +32,8 @@ The files are located under the section **Assets** of the version you want.
 
 ## Source files
 
-1. Download and unzip the source files: `beets-layout-va.x.x-src.zip`.
-2. Move the folders `scss/beets-layout` and `js/beets-layout` to your resource folder in your project (from where you compile your resources, i.e. ~/resources/`). You could `@include` the file `beets-layout/beets-layout.scss` in your main `app.scss` file.
+1. Download and unzip the source files: `beets-layout-v1.x.x-src.zip`.
+2. Move the folders `scss/beets-layout` and `js/beets-layout` to your resource folder in your project (from where you compile your resources, i.e. `~/resources/`). You could `@include` the file `beets-layout/beets-layout.scss` in your main `app.scss` file.
 3. Compile `beets-layout.scss` and `betts-layout.js` into you public assets folder (i.e. ~/public/assets/).
 
 # Documentation
