@@ -82,12 +82,12 @@ require "functions.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beets Layout</title>
-	<!-- Bootstrap -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <script src="./assets/js/bootstrap.bundle.js"></script>
-	<!-- Beets Layout -->
-    <link rel="stylesheet" href="./assets/css/beets-layout.css">
-    <script src="./assets/js/beets-layout.js"></script>
+	<!-- Link to your Bootstrap files -->
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="bootstrap.bundle.js"></script>
+	<!-- Link to your Beets Layout files -->
+    <link rel="stylesheet" href="beets-layout.css">
+    <script src="beets-layout.js"></script>
 </head>
 <body>
 
@@ -99,7 +99,7 @@ require "functions.php";
 
 			<div class="sidebar__header justify-content-between">
 				<div class="header__logo">
-					<img src="./assets/img/logotype.png" alt="Logotype">
+					<img src="logotype.png" alt="Logotype">
 				</div>
 				<button class="btn btn-primary d-lg-none" onclick="toggleSidebar()">X</button>
 			</div>
@@ -114,8 +114,9 @@ require "functions.php";
 								Dashboard
 							</a>
 						</li>
+						<?php $submenuItems = ['addUser', 'listUsers', 'removeUser']; ?>
 						<li class="list-item <?= openSubmenu($submenuItems) ?>">
-							<a href="#" class="nav-link nav-link__submenu <?= activePage(['addUser', 'listUsers', 'removeUser']) ?>" id="sub_users" onclick="toggleSubmenu('sub_users')">
+							<a href="#" class="nav-link nav-link__submenu <?= activePage($submenuItems) ?>" id="sub_users" onclick="toggleSubmenu('sub_users')">
 								<div class="nav-link-icon">&lt;i&gt;</div>
 								Users
 							</a>
@@ -158,15 +159,15 @@ require "functions.php";
 
 		</aside>
 			
-		<!-- Body -->
-		<div class="bl__body">
+		<!-- Main -->
+		<main class="bl__main">
 
 			<!-- Header -->
 			<header class="bl__header justify-content-between header-sticky px-3 px-lg-4">
 				
 				<button class="btn btn-primary d-lg-none" onclick="toggleSidebar()">=</button>
 				<div class="header__logo d-lg-none">
-					<img src="./assets/img/logotype.png" alt="Logotype">
+					<img src="logotype.png" alt="Logotype">
 				</div>
 				<button class="btn btn-primary d-lg-none" onclick="toggleHeader('header-nav')">...</button>
 
@@ -182,19 +183,19 @@ require "functions.php";
 
 			</header>
 
-			<!-- Main -->
-			<div class="bl__main">
+			<!-- Body -->
+			<div class="bl__body">
 				<div class="container-fluid px-3 px-lg-4 pt-2">
-					MAIN
+					BODY
 				</div>
 			</div>		
 			
 			<!-- Footer -->
-			<div class="bl__footer">
+			<footer class="bl__footer">
 				FOOTER
-			</div>
+			</footer>
 
-		</div>
+		</main>
 
 	</div>
 
