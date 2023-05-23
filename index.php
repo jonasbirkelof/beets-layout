@@ -44,7 +44,8 @@ function openSubmenu($uris)
 	<div id="beets-layout">
 		
 		<!-- Sidebar -->
-		<aside class="bl__sidebar sidebar-collapse sidebar-dark" style="background-color: #045163;">
+		<!-- <aside class="bl__sidebar sidebar-collapse sidebar-dark" style="background-color: #045163;"> -->
+		<aside class="bl__sidebar sidebar-collapse">
 
 			<div class="sidebar__header justify-content-between">
 				<div class="header__logo">
@@ -55,7 +56,7 @@ function openSubmenu($uris)
 
 			<div class="sidebar__body">
 				<!-- Navigation -->
-				<nav class="sidebar__nav nav-rounded-- nav-simple nav-compact-- nav-accent-info">
+				<nav class="sidebar__nav nav-style__rounded-- nav-style__simple simple__colored-submenu-- nav-style__compact-- nav-accent-danger">
 					<ul class="nav-list mb-0">
 						<li class="list-item">
 							<a href="?page=dashboard" class="nav-link <?= activePage(['dashboard']) ?>">

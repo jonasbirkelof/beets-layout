@@ -233,14 +233,14 @@
 }
 
 // Compact navigation
-#beets-layout .bl__sidebar .sidebar__nav.nav-compact {
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__compact {
 	.nav-list .nav-link {
 		height: $sidebar-compact-nav-link-height;
 	}
 }
 
 // Rounded navigation style
-#beets-layout .bl__sidebar .sidebar__nav.nav-rounded {
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__rounded {
 	.nav-list {
 		margin-left: -$sidebar-rounded-gutter-x;
 		margin-right: -$sidebar-rounded-gutter-x;
@@ -292,40 +292,56 @@
 }
 
 // Simple navigation style
-#beets-layout .bl__sidebar .sidebar__nav.nav-simple {
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__simple {
 	.nav-link.active:not(.nav-link__submenu),
 	.nav-list__submenu .nav-link.active {
 		color: $sidebar-color;
-		box-shadow: inset 5px 0 0 0 $sidebar-simple-shadow-color;
+		-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+		        box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
 	}
 	.list-item.open,
 	.list-item.open .nav-link.active:not(.nav-link__submenu) {
-		box-shadow: inset 5px 0 0 0 $sidebar-simple-shadow-color;
+		-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+		        box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
 	}
 	
 	// Custom accent color
 	&.nav-accent {
+		&.simple__colored-submenu {
+			.nav-list__submenu .nav-link.active {
+				color: $nav-accent-custom-color;
+			}
+		}
 		.nav-link.active,
 		.list-item.open .nav-link.active {
-			box-shadow: inset 5px 0 0 0 rgba($nav-accent-custom-color, .4);
+			-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($nav-accent-custom-color, $sidebar-simple-border-opacity);
+			        box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($nav-accent-custom-color, $sidebar-simple-border-opacity);
 		}
 		.nav-link.active:not(.nav-link__submenu),
 		.list-item.open .nav-link__submenu.active,
 		.list-item.open .nav-link {
-			box-shadow: inset 5px 0 0 0 $nav-accent-custom-color;
+			-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $nav-accent-custom-color;
+			        box-shadow: inset $sidebar-simple-border-width 0 0 0 $nav-accent-custom-color;
 		}
 	}
 	// Theme based accent colors
 	@each $color, $value in $bootstrap-theme-colors {
 		&.nav-accent-#{$color} {
+			&.simple__colored-submenu {
+				.nav-list__submenu .nav-link.active {
+					color: $value;
+				}
+			}
 			.nav-link.active,
 			.list-item.open .nav-link.active {
-				box-shadow: inset 5px 0 0 0 rgba($value, .4);
+				-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($value, $sidebar-simple-border-opacity);
+				        box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($value, $sidebar-simple-border-opacity);
 			}
 			.nav-link.active:not(.nav-link__submenu),
 			.list-item.open .nav-link__submenu.active,
 			.list-item.open .nav-link {
-				box-shadow: inset 5px 0 0 0 $value;
+				-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $value;
+				        box-shadow: inset $sidebar-simple-border-width 0 0 0 $value;
 			}
 		}
 	}

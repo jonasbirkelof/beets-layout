@@ -173,15 +173,101 @@ Add the `#!css .active` class to a `#!html <a class="nav_link"></a>` to style it
 </nav>
 ```
 
-### Styling
+### Styles
 
-There are a few built in styles to choose from as well as selecting an accent color that the `#!css .active` class uses.
+#### Default
 
-#### Accent colors
+The default style is basic and offers a clean and minimalistic look. There is no class for this style as it is the default.
 
-To use an accent color on active items, just add the class `#!css .nav-accent-*` to `#!css .sidebar__nav`. You can choose from the Bootstrap contextual colors och set your own. You don't need Bootstrap to choose these colors since they are hard coded in Beets Layout.
+#### Simple
 
-These are the accent colors you can choose from:
+The simple style is modern and distinct and can be found on many other sites, like admin pages. Add the class `#!css .nav-style__simple` to `#!css .sidebar__navigation` to use it.
+
+#### Rounded
+
+The rounded style has a modern and playful feel to it. Add the class `#!css .nav-style__rounded` to `#!css .sidebar__navigation` to use it.
+
+#### Examples
+
+=== "Default"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-basic.png)
+	</div>
+	```html
+	<nav class="sidebar__nav">
+		...
+	</nav>
+	```
+
+=== "Simple"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-simple.png)
+	</div>
+	```html
+	<nav class="sidebar__nav nav-style__simple">
+		...
+	</nav>
+	```
+
+=== "Rounded"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-rounded.png)
+	</div>
+	```html
+	<nav class="sidebar__nav nav-style__rounded">
+		...
+	</nav>
+	```
+
+### Compact navigation
+
+If you have many links in your navigation or if you have a secondary navigation that should be more subtle, you can use the compact style navigation. Add the class `#!css .nav-style__compact` to `#!css .sidebar__navigation`.
+
+Here are some examples using the different styles available:
+
+=== "Default"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-compact.png)
+	</div>
+	```html
+	<nav class="sidebar__nav nav-style__compact">
+		...
+	</nav>
+	```
+
+=== "Simple"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-compact-simple.png)
+	</div>
+	```html
+	<nav class="sidebar__nav nav-style__compact nav-style__simple">
+		...
+	</nav>
+	```
+
+=== "Rounded"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-compact-rounded.png)
+	</div>
+	```html
+	<nav class="sidebar__nav nav-style__compact nav-style__rounded">
+		...
+	</nav>
+	```
+
+### Accent colors
+
+To use an accent color on active items, just add the class `#!css .nav-accent-*` to `#!css .sidebar__nav`. You can choose from the Bootstrap contextual colors and set your own. You don't need Bootstrap to choose these colors though since they are hard coded in Beets Layout.
+
+#### Default
+
+These are the built in accent colors you can choose from:
 
 | Class      | Color                          |
 | ----------- | ------------------------------------ |
@@ -201,6 +287,12 @@ These are the accent colors you can choose from:
 	![title](../assets/images/sidebar-nav-accent-primary-basic.png)
 	</div>
 
+=== "Simple"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-accent-primary-simple.png)
+	</div>
+
 === "Rounded"
 
 	<div class="image" markdown>
@@ -211,6 +303,12 @@ These are the accent colors you can choose from:
 
 	<div class="image" markdown>
 	![title](../assets/images/sidebar-nav-submenu-accent-primary-basic.png)
+	</div>
+
+=== "Simple submenu"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-submenu-accent-primary-simple.png)
 	</div>
 
 === "Rounded submenu"
@@ -225,21 +323,20 @@ These are the accent colors you can choose from:
 </nav>
 ```
 
-You can add your own accent color by adding some custom css. You can either change the css value `#!css --bl-custom-accent` in `#!css :root` or, if you use the source files, change the scss variable `#!scss $nav-accent-custom-color` in the file `beets-layout/_variables.scss`, then use the class `#!css .nav-accent`.
+!!! tip 
+	You can set active submenu links to use the accent color when using the simple navigation style: [See here](#colored-active-links)
 
-=== "CSS var()"
+#### Custom
 
-	```css
-	:root {
-		--bl-custom-accent: #d63384;
-	}
-	```
+To set your own custom access color you will have to use the source files and compile the scss. Change the scss variable `#!scss $nav-accent-custom-color` in the file `beets-layout/_variables.scss` and then use the class `#!css .nav-accent` on `#!css .sidebar__nav`.
 
-=== "SCSS variable"
+```scss
+// Custom accent color (start)
 
-	```scss
-	$nav-accent-custom-color: var(--bl-custom-accent);
-	```
+$nav-accent-custom-color: #d63384;
+
+// Custom accent color (end)
+```
 
 ```html
 <nav class="sidebar__nav nav-accent">
@@ -247,55 +344,7 @@ You can add your own accent color by adding some custom css. You can either chan
 </nav>
 ```
 
-#### Compact & rounded
-
-If you have many links in your navigation of if you have a secondary navigation that should be more subtle, you can use the compact style navigation. Add the class `#!css .nav-compact` to `#!css .sidebar__navigation`.
-
-There is also a rounded style that has a more modern feel to it. Add the class `#!css .nav-rounded` to `#!css .sidebar__navigation`
-
-=== "Default"
-
-	<div class="image" markdown>
-	![title](../assets/images/sidebar-nav-basic.png)
-	</div>
-	```html
-	<nav class="sidebar__nav">
-		...
-	</nav>
-	```
-
-=== "Compact"
-
-	<div class="image" markdown>
-	![title](../assets/images/sidebar-nav-compact.png)
-	</div>
-	```html
-	<nav class="sidebar__nav nav-compact">
-		...
-	</nav>
-	```
-
-=== "Rounded"
-
-	<div class="image" markdown>
-	![title](../assets/images/sidebar-nav-rounded.png)
-	</div>
-	```html
-	<nav class="sidebar__nav nav-rounded">
-		...
-	</nav>
-	```
-
-=== "Compact + rounded"
-
-	<div class="image" markdown>
-	![title](../assets/images/sidebar-nav-compact-rounded.png)
-	</div>
-	```html
-	<nav class="sidebar__nav nav-compact nav-rounded">
-		...
-	</nav>
-	```
+Colored active links
 
 ### Submenus
 
@@ -311,10 +360,10 @@ Give the main `#!css .nav-link` an id (`#!html id="submenu-id"`) and add the Jav
 	![title](../assets/images/sidebar-nav-submenu-basic.png)
 	</div>
 
-=== "Compact"
+=== "Simple"
 
 	<div class="image" markdown>
-	![title](../assets/images/sidebar-nav-submenu-compact.png)
+	![title](../assets/images/sidebar-nav-submenu-simple.png)
 	</div>
 
 === "Rounded"
@@ -323,7 +372,19 @@ Give the main `#!css .nav-link` an id (`#!html id="submenu-id"`) and add the Jav
 	![title](../assets/images/sidebar-nav-submenu-rounded.png)
 	</div>
 
-=== "Compact + rounded"
+=== "Default compact"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-submenu-compact.png)
+	</div>
+
+=== "Simple compact"
+
+	<div class="image" markdown>
+	![title](../assets/images/sidebar-nav-submenu-compact-simple.png)
+	</div>
+
+=== "Rounded compact"
 
 	<div class="image" markdown>
 	![title](../assets/images/sidebar-nav-submenu-compact-rounded.png)
@@ -334,7 +395,7 @@ Give the main `#!css .nav-link` an id (`#!html id="submenu-id"`) and add the Jav
 	<ul class="nav-list">
 		<li class="list-item open">
 			<a href="#" class="nav-link nav-link__submenu active" id="link-1-submenu" onclick="toggleSubmenu('link-1-submenu')">
-				<div class="nav-link-icon">..</div>
+				<div class="nav-link-icon">...</div>
 				Link 1
 			</a>
 			<ul class="nav-list__submenu">
@@ -344,6 +405,16 @@ Give the main `#!css .nav-link` an id (`#!html id="submenu-id"`) and add the Jav
 			</ul>
 		</li>
 	</ul>
+</nav>
+```
+
+#### Colored active links
+
+If you are using the simple styling `#!css.nav-style__simple` you can opt-in to have the active submenu links colored with the selected accent color. To do this, you add the class `#!css.simple__colored-submenu` to `#!css .sidebar__nav`. The links will then have a more similar look to the default navigation style.
+
+```html
+<nav class="sidebar__nav nav-style__simple simple__colored-submenu nav-accent-primary">
+	...
 </nav>
 ```
 
