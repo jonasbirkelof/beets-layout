@@ -236,7 +236,7 @@
 		}
 		// Add border radius for first nav-link
 		.list-item:first-of-type .nav-link:hover,
-		.list-item:first-of-type .nav-link.active, {
+		.list-item:first-of-type .nav-link.active {
 			border-top-left-radius: $sidebar-rounded-border-radius;
 			border-top-right-radius: $sidebar-rounded-border-radius;
 		}
