@@ -5,8 +5,13 @@
 
 
 #beets-layout .bl__sidebar {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	position: fixed;
 	height: 100vh;
 	min-width: $sidebar-width;
@@ -15,21 +20,36 @@
 	overflow: auto;
 	
 	.sidebar__header {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		align-items: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		max-height: $header-height;
 		min-height: $header-height;
 	}
 
 	.sidebar__body {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-flex: 1;
+		    -ms-flex-positive: 1;
+		        flex-grow: 1;
 	}
 
 	.sidebar__footer {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		align-items: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		max-height: $footer-height;
 		min-height: $footer-height;
 	}
@@ -39,18 +59,26 @@
 		// Styling on smaller viewports
 		@media (max-width: $breakpoint) {
 			min-width: $sidebar-show-width;
-			transform: $sidebar-hide;
+			-webkit-transform: $sidebar-hide;
+			    -ms-transform: $sidebar-hide;
+			        transform: $sidebar-hide;
 		}
 		// Animate sidebar when showing/hiding
 		&.sidebar-show,
 		&.sidebar-hiding {
+			-webkit-transition: $sidebar-transition;
+			-o-transition: $sidebar-transition;
 			transition: $sidebar-transition;
 		}
 		&.sidebar-show {
-			transform: $sidebar-show;
+			-webkit-transform: $sidebar-show;
+			    -ms-transform: $sidebar-show;
+			        transform: $sidebar-show;
 		}
 		&.sidebar-hiding {
-			transform: $sidebar-hide;
+			-webkit-transform: $sidebar-hide;
+			    -ms-transform: $sidebar-hide;
+			        transform: $sidebar-hide;
 		}
 	}
 }
@@ -108,12 +136,18 @@
 		list-style: none;
 
 		.nav-item {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
 		}
 
 		.nav-link {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
-			align-items: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
 			width: 100%;
 			height: $sidebar-nav-link-height;
 			color: inherit;
@@ -170,10 +204,14 @@
 		@include submenu-indicator($sidebar-submenu-indicator-color);
 		background-position: $sidebar-submenu-indicator-position;
 		background-repeat: no-repeat;
+		-webkit-transition: $sidebar-submenu-indicator-transition;
+		-o-transition: $sidebar-submenu-indicator-transition;
 		transition: $sidebar-submenu-indicator-transition;
 	}
 	.nav-link__submenu.active::after {
-		transform: $sidebar-submenu-indicator-transform-active;
+		-webkit-transform: $sidebar-submenu-indicator-transform-active;
+		    -ms-transform: $sidebar-submenu-indicator-transform-active;
+		        transform: $sidebar-submenu-indicator-transform-active;
 	}
 
 	// Custom accent color
@@ -194,7 +232,7 @@
 	}
 }
 
-// Compact navigation style
+// Compact navigation
 #beets-layout .bl__sidebar .sidebar__nav.nav-compact {
 	.nav-list .nav-link {
 		height: $sidebar-compact-nav-link-height;
@@ -253,6 +291,46 @@
 	}
 }
 
+// Simple navigation style
+#beets-layout .bl__sidebar .sidebar__nav.nav-simple {
+	.nav-link.active:not(.nav-link__submenu),
+	.nav-list__submenu .nav-link.active {
+		color: $sidebar-color;
+		box-shadow: inset 5px 0 0 0 $sidebar-simple-shadow-color;
+	}
+	.list-item.open,
+	.list-item.open .nav-link.active:not(.nav-link__submenu) {
+		box-shadow: inset 5px 0 0 0 $sidebar-simple-shadow-color;
+	}
+	
+	// Custom accent color
+	&.nav-accent {
+		.nav-link.active,
+		.list-item.open .nav-link.active {
+			box-shadow: inset 5px 0 0 0 rgba($nav-accent-custom-color, .4);
+		}
+		.nav-link.active:not(.nav-link__submenu),
+		.list-item.open .nav-link__submenu.active,
+		.list-item.open .nav-link {
+			box-shadow: inset 5px 0 0 0 $nav-accent-custom-color;
+		}
+	}
+	// Theme based accent colors
+	@each $color, $value in $bootstrap-theme-colors {
+		&.nav-accent-#{$color} {
+			.nav-link.active,
+			.list-item.open .nav-link.active {
+				box-shadow: inset 5px 0 0 0 rgba($value, .4);
+			}
+			.nav-link.active:not(.nav-link__submenu),
+			.list-item.open .nav-link__submenu.active,
+			.list-item.open .nav-link {
+				box-shadow: inset 5px 0 0 0 $value;
+			}
+		}
+	}
+}
+
 // Dark sidebar
 #beets-layout .bl__sidebar.sidebar-dark {
 	color: $dark-sidebar-color;
@@ -271,7 +349,7 @@
 #beets-layout .bl__sidebar.sidebar-dark .sidebar__nav {
 	 .nav-list {
 		.nav-link {
-			opacity: $dark-nav-link-opacity;
+			// opacity: $dark-nav-link-opacity;
 			
 			&:hover,
 			&.active {

@@ -55,7 +55,7 @@ function openSubmenu($uris)
 
 			<div class="sidebar__body">
 				<!-- Navigation -->
-				<nav class="sidebar__nav nav-rounded nav-compact-- nav-accent-warning">
+				<nav class="sidebar__nav nav-rounded-- nav-simple nav-compact-- nav-accent-info">
 					<ul class="nav-list mb-0">
 						<li class="list-item">
 							<a href="?page=dashboard" class="nav-link <?= activePage(['dashboard']) ?>">
@@ -65,7 +65,7 @@ function openSubmenu($uris)
 						</li>
 						<?php $submenuItems = ['addUser', 'listUsers', 'removeUser']; ?>
 						<li class="list-item <?= openSubmenu($submenuItems) ?>">
-							<a href="#" class="nav-link nav-link__submenu <?= activePage($submenuItems) ?>" id="sub_users" onclick="toggleSubmenu('sub_users')">
+							<a href="?page=addUser" class="nav-link nav-link__submenu <?= activePage($submenuItems) ?>" id="sub_users" onclick="toggleSubmenu('sub_users')">
 								<div class="nav-link-icon">&lt;i&gt;</div>
 								Users
 							</a>
