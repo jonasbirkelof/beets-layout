@@ -44,7 +44,8 @@ function openSubmenu($uris)
 	<div id="beets-layout">
 		
 		<!-- Sidebar -->
-		<aside class="bl__sidebar sidebar-collapse sidebar-dark" style="background-color: #045163;">
+		<!-- <aside class="bl__sidebar sidebar-collapse sidebar-dark" style="background-color: #045163;"> -->
+		<aside class="bl__sidebar sidebar-collapse">
 
 			<div class="sidebar__header justify-content-between">
 				<div class="header__logo">
@@ -55,7 +56,7 @@ function openSubmenu($uris)
 
 			<div class="sidebar__body">
 				<!-- Navigation -->
-				<nav class="sidebar__nav nav-rounded nav-compact-- nav-accent-warning">
+				<nav class="sidebar__nav nav-style__rounded-- nav-style__simple simple__colored-submenu-- nav-style__compact-- nav-accent-danger">
 					<ul class="nav-list mb-0">
 						<li class="list-item">
 							<a href="?page=dashboard" class="nav-link <?= activePage(['dashboard']) ?>">
@@ -65,7 +66,7 @@ function openSubmenu($uris)
 						</li>
 						<?php $submenuItems = ['addUser', 'listUsers', 'removeUser']; ?>
 						<li class="list-item <?= openSubmenu($submenuItems) ?>">
-							<a href="#" class="nav-link nav-link__submenu <?= activePage($submenuItems) ?>" id="sub_users" onclick="toggleSubmenu('sub_users')">
+							<a href="?page=addUser" class="nav-link nav-link__submenu <?= activePage($submenuItems) ?>" id="sub_users" onclick="toggleSubmenu('sub_users')">
 								<div class="nav-link-icon">&lt;i&gt;</div>
 								Users
 							</a>

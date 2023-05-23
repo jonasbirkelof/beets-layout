@@ -5,8 +5,13 @@
 
 
 #beets-layout .bl__sidebar {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	position: fixed;
 	height: 100vh;
 	min-width: $sidebar-width;
@@ -15,21 +20,36 @@
 	overflow: auto;
 	
 	.sidebar__header {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		align-items: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		max-height: $header-height;
 		min-height: $header-height;
 	}
 
 	.sidebar__body {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-flex: 1;
+		    -ms-flex-positive: 1;
+		        flex-grow: 1;
 	}
 
 	.sidebar__footer {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		align-items: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		max-height: $footer-height;
 		min-height: $footer-height;
 	}
@@ -39,18 +59,26 @@
 		// Styling on smaller viewports
 		@media (max-width: $breakpoint) {
 			min-width: $sidebar-show-width;
-			transform: $sidebar-hide;
+			-webkit-transform: $sidebar-hide;
+			    -ms-transform: $sidebar-hide;
+			        transform: $sidebar-hide;
 		}
 		// Animate sidebar when showing/hiding
 		&.sidebar-show,
 		&.sidebar-hiding {
+			-webkit-transition: $sidebar-transition;
+			-o-transition: $sidebar-transition;
 			transition: $sidebar-transition;
 		}
 		&.sidebar-show {
-			transform: $sidebar-show;
+			-webkit-transform: $sidebar-show;
+			    -ms-transform: $sidebar-show;
+			        transform: $sidebar-show;
 		}
 		&.sidebar-hiding {
-			transform: $sidebar-hide;
+			-webkit-transform: $sidebar-hide;
+			    -ms-transform: $sidebar-hide;
+			        transform: $sidebar-hide;
 		}
 	}
 }
@@ -108,12 +136,18 @@
 		list-style: none;
 
 		.nav-item {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
 		}
 
 		.nav-link {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
-			align-items: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
 			width: 100%;
 			height: $sidebar-nav-link-height;
 			color: inherit;
@@ -170,10 +204,14 @@
 		@include submenu-indicator($sidebar-submenu-indicator-color);
 		background-position: $sidebar-submenu-indicator-position;
 		background-repeat: no-repeat;
+		-webkit-transition: $sidebar-submenu-indicator-transition;
+		-o-transition: $sidebar-submenu-indicator-transition;
 		transition: $sidebar-submenu-indicator-transition;
 	}
 	.nav-link__submenu.active::after {
-		transform: $sidebar-submenu-indicator-transform-active;
+		-webkit-transform: $sidebar-submenu-indicator-transform-active;
+		    -ms-transform: $sidebar-submenu-indicator-transform-active;
+		        transform: $sidebar-submenu-indicator-transform-active;
 	}
 
 	// Custom accent color
@@ -194,15 +232,15 @@
 	}
 }
 
-// Compact navigation style
-#beets-layout .bl__sidebar .sidebar__nav.nav-compact {
+// Compact navigation
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__compact {
 	.nav-list .nav-link {
 		height: $sidebar-compact-nav-link-height;
 	}
 }
 
 // Rounded navigation style
-#beets-layout .bl__sidebar .sidebar__nav.nav-rounded {
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__rounded {
 	.nav-list {
 		margin-left: -$sidebar-rounded-gutter-x;
 		margin-right: -$sidebar-rounded-gutter-x;
@@ -236,7 +274,7 @@
 		}
 		// Add border radius for first nav-link
 		.list-item:first-of-type .nav-link:hover,
-		.list-item:first-of-type .nav-link.active, {
+		.list-item:first-of-type .nav-link.active {
 			border-top-left-radius: $sidebar-rounded-border-radius;
 			border-top-right-radius: $sidebar-rounded-border-radius;
 		}
@@ -249,6 +287,62 @@
 		// Set padding left and remove default left border
 		.nav-link {
 			padding-left: $sidebar-rounded-gutter-x + $sidebar-nav-link-icon-width;
+		}
+	}
+}
+
+// Simple navigation style
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__simple {
+	.nav-link.active:not(.nav-link__submenu),
+	.nav-list__submenu .nav-link.active {
+		color: $sidebar-color;
+		-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+		        box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+	}
+	.list-item.open,
+	.list-item.open .nav-link.active:not(.nav-link__submenu) {
+		-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+		        box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+	}
+	
+	// Custom accent color
+	&.nav-accent {
+		&.simple__colored-submenu {
+			.nav-list__submenu .nav-link.active {
+				color: $nav-accent-custom-color;
+			}
+		}
+		.nav-link.active,
+		.list-item.open .nav-link.active {
+			-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($nav-accent-custom-color, $sidebar-simple-border-opacity);
+			        box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($nav-accent-custom-color, $sidebar-simple-border-opacity);
+		}
+		.nav-link.active:not(.nav-link__submenu),
+		.list-item.open .nav-link__submenu.active,
+		.list-item.open .nav-link {
+			-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $nav-accent-custom-color;
+			        box-shadow: inset $sidebar-simple-border-width 0 0 0 $nav-accent-custom-color;
+		}
+	}
+	// Theme based accent colors
+	@each $color, $value in $bootstrap-theme-colors {
+		&.nav-accent-#{$color} {
+			&.simple__colored-submenu {
+				.nav-list__submenu .nav-link.active {
+					color: $value;
+				}
+			}
+			.nav-link.active,
+			.list-item.open .nav-link.active {
+				-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($value, $sidebar-simple-border-opacity);
+				        box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($value, $sidebar-simple-border-opacity);
+			}
+			.nav-link.active:not(.nav-link__submenu),
+			.list-item.open .nav-link__submenu.active,
+			.list-item.open .nav-link {
+				-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $value;
+				        box-shadow: inset $sidebar-simple-border-width 0 0 0 $value;
+			}
 		}
 	}
 }
@@ -271,7 +365,7 @@
 #beets-layout .bl__sidebar.sidebar-dark .sidebar__nav {
 	 .nav-list {
 		.nav-link {
-			opacity: $dark-nav-link-opacity;
+			// opacity: $dark-nav-link-opacity;
 			
 			&:hover,
 			&.active {

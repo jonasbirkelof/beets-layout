@@ -44,6 +44,7 @@ $gutter-sm-x: $gutter-x / 2; // 12px
 $gutter-sm-y: $gutter-y / 2; // 8px
 $layout-border-color: #e0e0e0;
 $layout-bg: #ffffff;
+$layout-color: #212529; // BS body-color
 
 // Sidebar
 
@@ -65,11 +66,11 @@ $sidebar-border: 1px solid $layout-border-color;
 $sidebar-border-color-dark: rgba(255, 255, 255, .25);
 $divider-opacity: 1;
 
-:root {
-  --bl-custom-accent: #d63384;
-}
+// Custom accent color (start)
 
-$nav-accent-custom-color: var(--bl-custom-accent);
+$nav-accent-custom-color: #d63384;
+
+// Custom accent color (end)
 
 $sidebar-nav-link-height: 48px;
 $sidebar-nav-link-icon-width: 1.75rem;
@@ -92,6 +93,12 @@ $sidebar-compact-nav-link-height: $sidebar-nav-link-height * .75;
 $sidebar-rounded-gutter-y: $gutter-y / 2;
 $sidebar-rounded-gutter-x: $gutter-x * .5;
 $sidebar-rounded-border-radius: .5rem;
+
+$sidebar-simple-color: $sidebar-color;
+$sidebar-simple-shadow-color: rgba($layout-color, .85);
+$sidebar-simple-shadow-active-color: $layout-color;
+$sidebar-simple-border-width: 4px;
+$sidebar-simple-border-opacity: .3;
 
 $dark-sidebar-color: #ffffff;
 $dark-divider-opacity: .2;
@@ -116,7 +123,7 @@ $header-nav-link-line-height: 22px;
 // Main
 
 $body-bg: $layout-bg;
-$body-color: inherit;
+$body-color: $layout-color;
 
 // Footer
 
